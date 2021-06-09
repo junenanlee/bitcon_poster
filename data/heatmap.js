@@ -17,6 +17,7 @@ var heatmapData = [
     count: "42,230,000원",
     value: 7344420,
     color: heatColor[0],
+    isVisibleInLegend: true,
   },
   {
     name: "이더리움",

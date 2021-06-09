@@ -21,14 +21,14 @@ var thetaVal;
 function fnSaveAsPdf() {
   html2canvas(document.getElementById("capture")).then(function (canvas) {
     var imgData = canvas.toDataURL("image/png");
-    var imgWidth = 420 * 1.414;
+    var imgWidth = 210;
     var pageHeight = imgWidth * 1.414;
     var imgHeight = (canvas.height * imgWidth) / canvas.width;
 
     var doc = new jsPDF({
       orientation: "p",
       unit: "mm",
-      format: "a1",
+      format: "a4",
     });
 
     doc.addImage(imgData, "PNG", 0, 0, imgWidth, imgHeight);
@@ -57,10 +57,62 @@ $(document).ready(function () {
   setBitCoinData();
   setChart();
   // setBubbleChart();
-  setHeatMap();
+  // setHeatMap();
+  // $("iframe").on("load", function () {
+  //   $("#coin360").contents().find("header").css("display", "none");
+  // });
+
+  $("#coin360").one("load", function () {
+    var head = jQuery("#coin360").contents().find("head");
+    var css =
+      '<style type="text/css">' + ".Header{display:none}; " + "</style>";
+    jQuery(head).append(css);
+  });
 });
 
 function setHeatMap() {
+  (function (H) {
+    let pick = H.pick,
+      defined = H.defined,
+      fireEvent = H.fireEvent;
+    H.wrap(
+      (H.Legend.prototype.getAllItems = function (p) {
+        var allItemsFirst = [],
+          allItems = [];
+        this.chart.series.forEach(function (series) {
+          var seriesOptions = series && series.options;
+          // Handle showInLegend. If the series is linked to another series,
+          // defaults to false.
+          if (
+            series &&
+            pick(
+              seriesOptions.showInLegend,
+              !defined(seriesOptions.linkedTo) ? void 0 : false,
+              true
+            )
+          ) {
+            // Use points or series for the legend item depending on
+            // legendType
+            allItemsFirst = allItems.concat(
+              series.legendItems ||
+                (seriesOptions.legendType === "point" ? series.data : series)
+            );
+          }
+        });
+
+        allItemsFirst.forEach((el) => {
+          if (el.isVisibleInLegend) {
+            allItems.push(el);
+          }
+        });
+
+        fireEvent(this, "afterGetAllItems", {
+          allItems: allItems,
+        });
+        return allItems;
+      })
+    );
+  })(Highcharts);
   Highcharts.chart("heatmap-container", {
     series: [
       {

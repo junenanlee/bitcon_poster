@@ -76,7 +76,7 @@ $(document).ready(function () {
   setValueText();
   var tableHTML = "";
   tableHTML +=
-    "<div class='table-header'>주문/거래 현황 <small style='color:#333; font-size:12px; font-weight:lighter; margin-left:130px;'>2021.03.28 기준</small></div>";
+    "<div class='table-header'>주문/거래 현황 <small style='color:#333; font-size:12px; font-weight:lighter; margin-left:165px;'>2021.03.28 기준</small></div>";
   tableHTML += "<table class='current-table'>";
   tableHTML += "<tr>";
   tableHTML += "<td class='th'>자산</td>";

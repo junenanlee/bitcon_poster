@@ -37,8 +37,10 @@ body {
 #table-container {
   position: absolute;
   z-index: 3;
-  left: 120px;
-  top: 1285px;
+  position: absolute;
+  z-index: 3;
+  left: 50px;
+  top: 845px;
 }
 .current-table {
   width: 390px;
@@ -61,7 +63,7 @@ body {
   color: #333 !important;
 }
 .table-header {
-  font-size: 28px;
+  font-size: 20px;
   font-weight: bold;
 }
 #table-sparkline {
@@ -90,9 +92,9 @@ body {
 
 .crypto {
   position: absolute;
-  width: 530px;
+  width: 450px;
   left: 580px;
-  top: 1320px;
+  top: 1800px;
   z-index: 1;
   border-radius: 20px;
 }
@@ -171,4 +173,32 @@ body {
   background-color: white;
   appearance: none;
   font-size: 30px;
+}
+
+.bithumb {
+  position: absolute;
+  top: -690px;
+  left: 0px;
+  z-index: 10;
+  width: 1020px;
+  height: 640px;
+}
+
+.bithumb-container {
+  width: 1030px;
+  height: 450px;
+  overflow: hidden;
+  position: absolute;
+  z-index: 10;
+  top: 1280px;
+  left: 30px;
+}
+
+.img-eth {
+  position: absolute;
+  z-index: 10;
+  width: 489px;
+  left: 510px;
+  top: 860px;
+  border-radius: 15px;
 }
