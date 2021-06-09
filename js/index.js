@@ -828,6 +828,7 @@ function setChart() {
       crosshairs: true,
       shared: true,
       split: true,
+      valueSuffix: " %",
     },
   });
 

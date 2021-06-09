@@ -202,3 +202,22 @@ body {
   top: 860px;
   border-radius: 15px;
 }
+
+.g360 {
+  position: absolute;
+  z-index: 9;
+  left: 470px;
+  top: 300px;
+  width: 1020px;
+  height: 520px;
+}
+
+.gtable {
+  width: 1030px;
+  height: 450px;
+  overflow: hidden;
+  position: absolute;
+  z-index: 9;
+  top: 1280px;
+  left: 30px;
+}
